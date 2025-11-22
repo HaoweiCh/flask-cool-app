@@ -58,17 +58,56 @@
 
 ## 🚀 快速开始
 
+### Docker 部署（推荐）
+
+1. **使用 Docker Compose 启动应用**：
+   ```bash
+   docker compose up --build
+   ```
+
+2. **访问应用**：
+   应用将在 http://localhost:5000 启动
+
+3. **其他 Docker 命令**：
+   ```bash
+   # 后台运行
+   docker compose up -d
+   
+   # 查看日志
+   docker compose logs -f
+   
+   # 停止应用
+   docker compose down
+   ```
+
+### 本地开发
+
+1. **安装依赖**：
+   ```bash
+   uv sync
+   ```
+
+2. **运行应用**：
+   ```bash
+   python app.py
+   ```
+
 ### 项目结构
 
 ```
 flask-cool-app/
 ├── app.py              # 主应用文件
+├── Dockerfile          # Docker 配置
+├── docker-compose.yml  # Docker Compose 配置
+├── .dockerignore       # Docker 忽略文件
 ├── pyproject.toml      # 项目配置和依赖
 ├── static/             # 静态文件
 │   ├── style.css      # 样式文件
 │   └── script.js      # JavaScript 文件
 ├── templates/          # HTML 模板
 │   └── index.html     # 主页模板
+├── scripts/            # 脚本文件
+│   └── build.sh       # 构建脚本
 └── README.md          # 项目文档
 ```
 

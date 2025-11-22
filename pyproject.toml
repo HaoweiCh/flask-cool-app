@@ -1,11 +1,23 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
 [project]
 name = "flask-cool-app"
 version = "0.1.0"
-description = "一个简洁优雅的 Flask Web 应用项目，专注于快速开发和最佳实践"
+description = "一个简洁优雅的 Flask Web 应用项目，Coolify Application"
 readme = "README.md"
-requires-python = ">=3.10,<3.14"
+requires-python = ">=3.12,<3.14"
 dependencies = [
     "flask>=3.1.2",
+    "gunicorn>=21.0.0",  # Production WSGI server
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",      # Testing framework
+    "pytest-flask>=1.0.0", # Flask testing utilities
+    "ruff>=0.1.0",         # Linter and formatter
 ]
 authors = [
     { name = "Willard", email = "i@haowei.ch" }
@@ -17,18 +29,10 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
     "Framework :: Flask",
 ]
-
-[build-system]
-requires = ["uv==0.9.11"]
-build-backend = "hatchling.build"
 
 [project.urls]
 Homepage = "https://github.com/HaoweiCh/flask-cool-app"
