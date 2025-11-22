@@ -8,7 +8,7 @@ dependencies = [
     "flask>=3.1.2",
 ]
 authors = [
-    {name = "Willard", email = "i@haowei.ch"}
+    { name = "Willard", email = "i@haowei.ch" }
 ]
 keywords = ["flask", "web", "application", "starter", "minimal"]
 classifiers = [
@@ -25,6 +25,10 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
     "Framework :: Flask",
 ]
+
+[build-system]
+requires = ["uv==0.9.11"]
+build-backend = "hatchling.build"
 
 [project.urls]
 Homepage = "https://github.com/HaoweiCh/flask-cool-app"
@@ -44,15 +48,15 @@ target-version = "py311"
 # Linting rules
 [tool.ruff.lint]
 select = [
-    "E",  # Pycodestyle errors
-    "F",  # Pyflakes
-    "W",  # Pycodestyle warnings
-    "I",  # isort
+    "E", # Pycodestyle errors
+    "F", # Pyflakes
+    "W", # Pycodestyle warnings
+    "I", # isort
     "UP", # pyupgrade
 ]
 ignore = [
-    "E501",  # Line length handled by formatter
-    "E203",  # Whitespace before ':'
+    "E501", # Line length handled by formatter
+    "E203", # Whitespace before ':'
 ]
 
 exclude = [
