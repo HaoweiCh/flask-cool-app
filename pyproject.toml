@@ -1,100 +1,25 @@
 [project]
 name = "flask-cool-app"
 version = "0.1.0"
-description = "一个简洁优雅的 Flask Web 应用项目，Coolify Application"
-readme = "README.md"
-requires-python = ">=3.12,<3.14"
+description = "一个简洁优雅的 Flask Web 应用"
+requires-python = ">=3.12"
 dependencies = [
     "flask>=3.1.2",
-    "gunicorn>=21.0.0",  # Production WSGI server
-]
-authors = [
-    {name = "Willard", email = "i@haowei.ch"}
-]
-keywords = ["flask", "web", "application", "starter", "minimal"]
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Framework :: Flask",
+    "gunicorn>=21.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.0.0",      # Testing framework
-    "pytest-flask>=1.0.0", # Flask testing utilities
-    "ruff>=0.1.0",         # Linter and formatter
+    "pytest>=8.0.0",
+    "pytest-flask>=1.0.0",
+    "ruff>=0.1.0",
 ]
 
-[project.urls]
-Homepage = "https://github.com/HaoweiCh/flask-cool-app"
-Repository = "https://github.com/HaoweiCh/flask-cool-app.git"
-Issues = "https://github.com/HaoweiCh/flask-cool-app/issues"
-
-[project.scripts]
-flask-cool-app = "app:main"
-
-[build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
-
-[tool.hatch.build.targets.wheel]
-packages = ["app"]
-
+# Ruff 配置（仅保留核心）
 [tool.ruff]
-src = ["app"]
 line-length = 88
-show-fixes = true
-unsafe-fixes = false
-target-version = "py311"
+target-version = "py312"
 
-# Linting rules
 [tool.ruff.lint]
-select = [
-    "E", # Pycodestyle errors
-    "F", # Pyflakes
-    "W", # Pycodestyle warnings
-    "I", # isort
-    "UP", # pyupgrade
-]
-ignore = [
-    "E501", # Line length handled by formatter
-    "E203", # Whitespace before ':'
-]
-
-exclude = [
-    ".git",
-    "__pycache__",
-    ".venv",
-    "venv",
-    "build",
-    "dist"
-]
-
-# Formatting rules
-[tool.ruff.format]
-docstring-code-format = true
-quote-style = "double"
-indent-style = "space"
-
-[tool.ruff.lint.per-file-ignores]
-"__init__.py" = ["F401"]
-
-[tool.ruff.lint.isort]
-order-by-type = true
-force-single-line = false
-combine-as-imports = true
-force-sort-within-sections = true
-section-order = [
-    "future",
-    "standard-library",
-    "third-party",
-    "first-party",
-    "local-folder"
-]
-known-third-party = ["flask"]
-known-first-party = ["app"]
+select = ["E", "F", "W", "I", "UP"]
+ignore = ["E501", "E203"]

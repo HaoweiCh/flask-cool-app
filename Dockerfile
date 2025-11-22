@@ -42,5 +42,4 @@ USER nonroot
 EXPOSE 5000
 
 # Run the application
-# Use gunicorn for production, Flask dev server for development
-CMD ["sh", "-c", "if [ \"$FLASK_ENV\" = \"development\" ]; then uv run python app.py; else uv run gunicorn --bind 0.0.0.0:5000 --workers 2 app:app; fi"]
+CMD ["uv", "run", "gunicorn", "--bind", "0.0.0.0:5000", "--workers", "2", "app:app"]
