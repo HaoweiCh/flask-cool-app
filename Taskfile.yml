@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - echo "{{.GREETING}}"
+    silent: true
+
+  check:
+    cmds:
+      - ruff check . --exclude "tests/" --fix --exit-zero > /dev/null && printf 'Ruff check output:\n\n' > logs/lint-errors.log
+      - ruff check . --exclude "tests/" --exit-zero >> logs/lint-errors.log
